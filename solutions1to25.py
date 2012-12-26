@@ -12,5 +12,17 @@ def problem1():
 
     return sum(multiples)
 
+@pm.problem(2, "Even Fibonacci numbers")
+def problem2():
+    fibs = [1, 2]
+
+    p, c = fibs
+    while c <= 4e6:
+        p, c = c, p + c
+        fibs.append(c)
+
+    def even(x): return x % 2 == 0
+    return sum(filter(even, fibs))
+
 if __name__ == "__main__":
     pm.run_problems()
